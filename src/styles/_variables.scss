@@ -1,0 +1,54 @@
+// Файл с переменными для системы дизайна (Design Tokens)
+// Используется во всем проекте для обеспечения consistency
+
+// Colors - Цветовая палитра
+$primary-color: #2563eb; // Основной цвет (синий)
+$primary-hover: #1d4ed8; // Цвет при наведении для primary элементов
+$secondary-color: #64748b; // Вторичный цвет (серо-синий)
+$success-color: #10b981; // Цвет успеха (зеленый)
+$warning-color: #f59e0b; // Цвет предупреждения (оранжевый)
+$error-color: #ef4444; // Цвет ошибки (красный)
+$info-color: #06b6d4; // Информационный цвет (голубой)
+
+// Dark theme - Темная тема
+$bg-primary: #0f172a; // Основной фон (темно-синий)
+$bg-secondary: #1e293b; // Вторичный фон (средне-синий)
+$bg-tertiary: #334155; // Третичный фон (светло-синий)
+$text-primary: #f1f5f9; // Основной текст (белый)
+$text-secondary: #cbd5e1; // Вторичный текст (светло-серый)
+$text-muted: #94a3b8; // Приглушенный текст (серый)
+
+// Borders - Границы
+$border-color: #475569; // Цвет границ (темно-серый)
+$border-light: #64748b; // Светлый цвет границ (серый)
+$border-radius: 0.5rem; // Основной радиус скругления (8px)
+$border-radius-sm: 0.25rem; // Малый радиус скругления (4px)
+
+// Spacing - Отступы (Spacing scale)
+$spacing-xs: 0.25rem; // Очень маленький отступ (4px)
+$spacing-sm: 0.5rem; // Маленький отступ (8px)
+$spacing-md: 1rem; // Средний отступ (16px)
+$spacing-lg: 1.5rem; // Большой отступ (24px)
+$spacing-xl: 2rem; // Очень большой отступ (32px)
+
+// Typography - Типографика
+$font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; // Стек шрифтов
+$font-size-sm: 0.875rem; // Маленький размер шрифта (14px)
+$font-size-base: 1rem; // Базовый размер шрифта (16px)
+$font-size-lg: 1.125rem; // Большой размер шрифта (18px)
+$font-size-xl: 1.25rem; // Очень большой размер шрифта (20px)
+$font-size-2xl: 1.5rem; // Экстра-большой размер шрифта (24px)
+$line-height-base: 1.5; // Базовая высота строки
+$line-height-tight: 1.2; // Плотная высота строки
+
+// Shadows - Тени
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05); // Маленькая тень
+$shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); // Базовая тень
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); // Средняя тень
+
+// Transitions - Анимации и переходы
+$transition-base: 0.15s ease-in-out; // Базовая transition (0.15 секунд с плавным ускорением/замедлением)
+
+
+
+

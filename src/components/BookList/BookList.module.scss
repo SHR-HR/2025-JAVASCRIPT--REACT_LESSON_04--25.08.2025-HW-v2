@@ -1,0 +1,134 @@
+// Подключаем файл с переменными из папки styles, используя пространство имен $
+@use '../../styles/variables' as *;
+
+// Основной контейнер для всего списка книг
+.bookList {
+  display: flex; // Используем flexbox для вертикального расположения
+  flex-direction: column; // Элементы располагаются в колонку
+  gap: $spacing-lg; // Большой промежуток между дочерними элементами
+}
+
+// Стили для блока фильтров
+.filters {
+  background-color: $bg-secondary; // Цвет фона (вторичный, из переменных)
+  padding: $spacing-lg; // Большой внутренний отступ
+  border-radius: $border-radius; // Скругление углов
+  border: 1px solid $border-color; // Граница толщиной 1px
+  display: flex; // Flexbox для расположения элементов
+  flex-direction: column; // Элементы в колонку
+  gap: $spacing-md; // Средний промежуток между элементами
+}
+
+// Стили для строки фильтров
+.filterRow {
+  display: grid; // Используем CSS Grid для расположения
+  grid-template-columns: 1fr 1fr; // Две колонки равной ширины
+  gap: $spacing-md; // Средний промежуток между элементами сетки
+
+  // Медиа-запрос для мобильных устройств (ширина до 640px)
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr; // Одна колонка на мобильных
+  }
+}
+
+// Стили для блока действий (кнопки)
+.actions {
+  display: flex; // Flexbox для горизонтального расположения кнопок
+  gap: $spacing-sm; // Маленький промежуток между кнопками
+  justify-content: flex-start; // Выравнивание по левому краю
+
+  // Медиа-запрос для мобильных устройств
+  @media (max-width: 640px) {
+    flex-direction: column; // Кнопки в колонку на мобильных
+  }
+}
+
+// Стили для блока статистики
+.stats {
+  display: flex; // Flexbox для горизонтального расположения
+  gap: $spacing-lg; // Большой промежуток между элементами
+  font-size: $font-size-sm; // Маленький размер шрифта
+  color: $text-secondary; // Вторичный цвет текста
+
+  // Стили для элементов strong внутри stats
+  strong {
+    color: $text-primary; // Основной цвет текста для выделения
+  }
+
+  // Медиа-запрос для мобильных устройств
+  @media (max-width: 640px) {
+    flex-direction: column; // Элементы в колонку на мобильных
+    gap: $spacing-xs; // Очень маленький промежуток
+  }
+}
+
+// Стили для сетки книг
+.books {
+  // сбрасываем стандартные стили списка
+  list-style: none; // Убираем маркеры списка
+  padding: 0; // Убираем внутренние отступы
+  margin: 0; // Убираем внешние отступы
+
+  display: grid; // Используем CSS Grid для сетки
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); // Автозаполнение с минимальной шириной 260px
+  gap: $spacing-md; // Средний промежуток между элементами сетки
+  min-height: 200px; // Минимальная высота контейнера
+}
+
+// Стили для элемента книги
+.bookItem {
+  background-color: $bg-secondary; // Цвет фона (вторичный)
+  border: 1px solid $border-color; // Граница толщиной 1px
+  border-radius: $border-radius; // Скругление углов
+  padding: $spacing-lg; // Большой внутренний отступ
+  transition: all $transition-base; // Плавный переход всех свойств
+
+  // Эффекты при наведении курсора
+  &:hover {
+    border-color: $border-light; // Светлый цвет границы
+    box-shadow: $shadow-md; // Тень среднего размера
+    transform: translateY(-1px); // Легкое смещение вверх
+  }
+}
+
+// Стили для заголовка книги
+.bookTitle {
+  font-size: $font-size-lg; // Большой размер шрифта
+  font-weight: 600; // Полужирное начертание
+  color: $text-primary; // Основной цвет текста
+  margin-bottom: $spacing-sm; // Маленький отступ снизу
+  line-height: $line-height-tight; // Плотная высота строки
+}
+
+// Стили для блока с информацией о страницах
+.bookPages {
+  display: flex; // Flexbox для расположения
+  align-items: center; // Выравнивание по центру по вертикали
+  justify-content: space-between; // Распределение пространства между элементами
+  font-size: $font-size-sm; // Маленький размер шрифта
+  color: $text-secondary; // Вторичный цвет текста
+}
+
+// Стили для бейджа (метки) "Большая книга"
+.badge {
+  background-color: $primary-color; // Основной цвет фона
+  color: white; // Белый цвет текста
+  padding: 2px 6px; // Маленькие внутренние отступы
+  border-radius: 12px; // Сильное скругление углов
+  font-size: 0.75rem; // Очень маленький размер шрифта
+  font-weight: 500; // Среднее начертание шрифта
+}
+
+// Стили для сообщения о пустом списке
+.emptyMessage {
+  grid-column: 1 / -1; // Занимает все колонки сетки
+  text-align: center; // Выравнивание текста по центру
+  color: $text-muted; // Приглушенный цвет текста
+  font-style: italic; // Курсивное начертание
+  padding: $spacing-xl; // Очень большой внутренний отступ
+}
+
+
+
+
+

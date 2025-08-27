@@ -1,0 +1,29 @@
+# Игнорирование файлов логов
+logs           # Папка с логами
+*.log          # Все файлы с расширением .log
+npm-debug.log* # Логи отладки npm
+yarn-debug.log* # Логи отладки Yarn
+yarn-error.log* # Логи ошибок Yarn
+pnpm-debug.log* # Логи отладки pnpm
+lerna-debug.log* # Логи отладки Lerna
+
+# Игнорирование зависимостей и сгенерированных файлов
+node_modules  # Папка с зависимостями Node.js (устанавливается через npm install)
+dist          # Папка с собранными файлами для production (обычно результат сборки)
+dist-ssr      # Папка с собранными файлами для Server-Side Rendering (SSR)
+*.local       # Все файлы с расширением .local (часто используются для локальных конфигов)
+
+# Игнорирование файлов и папок редакторов кода
+.vscode/*     # Все файлы в папке .vscode (настройки VS Code)
+!.vscode/extensions.json # ИСКЛЮЧЕНИЕ: не игнорировать файл extensions.json в папке .vscode
+.idea         # Папка .idea (настройки JetBrains IDE, например WebStorm)
+.DS_Store     # Файл метаданных macOS
+*.suo         # Файлы настроек пользователя Visual Studio
+*.ntvs*       # Файлы проектов Node.js Tools for Visual Studio
+*.njsproj     # Файлы проектов Node.js Tools for Visual Studio
+*.sln         # Файлы решений Visual Studio
+*.sw?         # Файлы свопинга (временные файлы редакторов)
+
+
+
+

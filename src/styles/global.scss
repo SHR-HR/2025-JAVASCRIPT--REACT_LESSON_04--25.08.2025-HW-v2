@@ -1,0 +1,154 @@
+// Подключаем файл с переменными и используем пространство имен $
+@use './variables' as *;
+// Подключаем Sass-модуль для работы с цветами
+@use 'sass:color';
+
+// Глобальный сброс стилей для всех элементов
+* {
+  margin: 0; // Убираем внешние отступы
+  padding: 0; // Убираем внутренние отступы
+  box-sizing: border-box; // Меняем модель расчета размеров на border-box
+}
+
+// Стили для тела документа
+body {
+  font-family: $font-family; // Устанавливаем стек шрифтов
+  line-height: $line-height-base; // Базовая высота строки
+  color: $text-primary; // Основной цвет текста
+  background-color: $bg-primary; // Основной цвет фона
+  min-height: 100vh; // Минимальная высота равна высоте viewport
+}
+
+// Основной контейнер приложения
+.app {
+  min-height: 100vh; // Минимальная высота равна высоте viewport
+  
+  // Стили для шапки приложения
+  &__header {
+    text-align: center; // Выравнивание текста по центру
+    padding: $spacing-xl; // Очень большой внутренний отступ
+    background-color: $bg-secondary; // Вторичный цвет фона
+    border-bottom: 1px solid $border-color; // Граница снизу
+    
+    // Стили для заголовка h1 в шапке
+    h1 {
+      font-size: $font-size-2xl; // Экстра-большой размер шрифта
+      margin-bottom: $spacing-sm; // Маленький отступ снизу
+      color: $text-primary; // Основной цвет текста
+    }
+    
+    // Стили для параграфа в шапке
+    p {
+      color: $text-secondary; // Вторичный цвет текста
+      font-size: $font-size-base; // Базовый размер шрифта
+    }
+  }
+  
+  // Стили для основной части приложения
+  &__main {
+    padding: $spacing-lg; // Большой внутренний отступ
+    max-width: 1200px; // Максимальная ширина контейнера
+    margin: 0 auto; // Центрирование по горизонтали
+  }
+}
+
+// Стили для элементов форм
+.form-group {
+  display: flex; // Flexbox для вертикального расположения
+  flex-direction: column; // Элементы в колонку
+  gap: $spacing-xs; // Очень маленький промежуток между элементами
+  
+  // Стили для лейблов
+  label {
+    font-size: $font-size-sm; // Маленький размер шрифта
+    font-weight: 500; // Средняя жирность шрифта
+    color: $text-secondary; // Вторичный цвет текста
+  }
+  
+  // Стили для полей ввода и выпадающих списков
+  input,
+  select {
+    padding: $spacing-sm $spacing-md; // Внутренние отступы
+    border: 1px solid $border-color; // Граница толщиной 1px
+    border-radius: $border-radius-sm; // Малый радиус скругления
+    background-color: $bg-tertiary; // Третичный цвет фона
+    color: $text-primary; // Основной цвет текста
+    font-size: $font-size-base; // Базовый размер шрифта
+    transition: border-color $transition-base; // Плавное изменение цвета границы
+    
+    // Стили для состояния фокуса
+    &:focus {
+      outline: none; // Убираем стандартный outline
+      border-color: $primary-color; // Изменяем цвет границы на основной
+    }
+    
+    // Стили для плейсхолдера
+    &::placeholder {
+      color: $text-muted; // Приглушенный цвет текста
+    }
+  }
+}
+
+// Стили для кнопок
+.btn {
+  padding: $spacing-sm $spacing-md; // Внутренние отступы
+  border: none; // Убираем границу
+  border-radius: $border-radius-sm; // Малый радиус скругления
+  font-size: $font-size-sm; // Маленький размер шрифта
+  font-weight: 500; // Средняя жирность шрифта
+  cursor: pointer; // Курсор-указатель
+  transition: all $transition-base; // Плавный переход всех свойств
+  text-decoration: none; // Убираем подчеркивание
+  display: inline-flex; // Flex-контейнер для выравнивания иконок
+  align-items: center; // Выравнивание по центру по вертикали
+  gap: $spacing-xs; // Промежуток между элементами
+  
+  // Модификатор для основной кнопки
+  &--primary {
+    background-color: $primary-color; // Основной цвет фона
+    color: white; // Белый цвет текста
+    
+    // Эффект при наведении
+    &:hover {
+      background-color: $primary-hover; // Темнее основной цвет
+    }
+  }
+  
+  // Модификатор для вторичной кнопки
+  &--secondary {
+    background-color: $bg-tertiary; // Третичный цвет фона
+    color: $text-secondary; // Вторичный цвет текста
+    border: 1px solid $border-color; // Граница толщиной 1px
+    
+    // Эффект при наведении
+    &:hover {
+      background-color: $border-color; // Цвет фона как у границы
+      color: $text-primary; // Основной цвет текста
+    }
+  }
+  
+  // Модификатор для опасной кнопки (удаление и т.д.)
+  &--danger {
+    background-color: $error-color; // Цвет ошибки для фона
+    color: white; // Белый цвет текста
+    
+    // Эффект при наведении
+    &:hover {
+      // Используем Sass-функцию для затемнения цвета
+      background-color: color.adjust($error-color, $lightness: -10%);
+    }
+  }
+}
+
+// Вспомогательные utility-классы
+.text-center { text-align: center; } // Выравнивание текста по центру
+.text-muted { color: $text-muted; } // Приглушенный цвет текста
+.mt-4 { margin-top: $spacing-lg; } // Большой отступ сверху
+.mb-4 { margin-bottom: $spacing-lg; } // Большой отступ снизу
+
+
+
+
+
+
+
